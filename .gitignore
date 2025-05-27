@@ -172,3 +172,17 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# Data & outputs
+*.csv
+*.xlsx
+*.log
+
+# Serialized models
+*.pkl
+*.joblib
+
+# System
+.DS_Store
+Thumbs.db
+
