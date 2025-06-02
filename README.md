@@ -35,14 +35,12 @@ In process industries, it is crucial to detect early signs of deviation that cou
 ### ⏱️ Step 5: Estimate TTF
 - For each `"Anomaly"` point, calculate `Estimated TTF (hours)` using:
   
-  \[
-  \text{TTF} = \frac{y_{\text{alarm}} - y_0}{m}
-  \]
+  TTF = (y_alarm - y0) / m
   
   where:
-  - \( y_0 \): current value
-  - \( m \): recent rolling slope
-  - \( y_{\text{alarm}} \): nearest alarm threshold (high or low)
+  - `y0` = current value
+  - `m` = recent rolling slope
+  - `y_alarm` = nearest alarm threshold (high or low)
 
 ---
 
