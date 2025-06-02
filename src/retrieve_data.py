@@ -13,7 +13,7 @@ class RetrieveData:
         self.agg = None
  
 
-    def retrieve_data(self, ex_id, start_time_str, end_time_str, agg, interval):
+    def retrieve_agg(self, ex_id, start_time_str, end_time_str, agg, interval):
 
         #store external_id and aggregation method into attribute as reference
         self.ext_id = ex_id
@@ -46,6 +46,20 @@ class RetrieveData:
         )
     
         df = datapoints.to_pandas()
+
+        #rename columns
+        df = df.rename(columns={df.columns[0]:"value"})
+        df = df.reset_index()
+        df.columns = ["Timestamp", "value"]
+        return df
+
+    def retrieve_raw(self, ex_id, start_time, end_time):
+        raw_data = self.client.time_series.data.retrieve(
+            external_id = ex_id,
+            start = start_time,
+            end = end_time
+        )
+        df= raw_data.to_pandas()
 
         #rename columns
         df = df.rename(columns={df.columns[0]:"value"})
